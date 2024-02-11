@@ -1,6 +1,11 @@
+import MainWrapper from "../atoms/wrappers/MainWrapper";
+import Hero from "../organisms/Hero";
+
 const Main = () => {
     return (
-      <p>main</p>
+      <MainWrapper>
+        <Hero />
+      </MainWrapper>
     );
   }
   

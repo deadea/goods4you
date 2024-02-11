@@ -7,5 +7,6 @@ const HarnessWrapper = styled('div')`
     flex-direction: column;
     align-items: center;
     padding-top: 15px;
+    color: ${props => props.theme.text.light};
 `
 export default HarnessWrapper;
