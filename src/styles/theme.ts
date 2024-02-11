@@ -5,7 +5,10 @@ export const theme = {
         secondary: '#FFF4EE',
         accent: '#F14F4F',
     },
-    border: '#DBBBA9',
+    border: {
+        main: '#FFFFFF80',
+        secondary: '#DBBBA9',
+    },
     text: {
         dark: '#444B58',
         light: '#FFFFFF',

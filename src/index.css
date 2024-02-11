@@ -22,7 +22,6 @@ font-weight: 700;
 
 :root {
   font-family: Jost, sans-serif;
-  line-height: 1.5;
   font-weight: 400;
   background-color: #484283;
   font-synthesis: none;
@@ -37,4 +36,43 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  margin: 0;
+}
+
+button {
+  appearance: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+  padding: 0;
 }

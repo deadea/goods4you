@@ -2,11 +2,15 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
 
-function App() {
+import Harness from './templates/Harness';
+import Main from './pages/Main';
+
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <>
-      </>
+      <Harness>
+        <Main />
+      </Harness>
     </ThemeProvider>
   );
 }
