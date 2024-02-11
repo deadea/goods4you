@@ -4,7 +4,7 @@ import LogoTypography from '../atoms/typography/LogoTypography';
 import NavMenu from '../molecules/menu/NavMenu';
 import Cart from '../molecules/cart/Cart';
 
-const HeaderContainer = styled('div')`
+const HeaderContainer = styled('header')`
     border-bottom: 1px solid ${props => props.theme.border.main};
     width: 1201.8px;
     display: flex;
