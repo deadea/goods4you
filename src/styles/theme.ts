@@ -5,6 +5,10 @@ export const theme = {
         secondary: '#FFF4EE',
         accent: '#F14F4F',
     },
+    button: {
+        dark: '#444B58',
+        accent: '#F14F4F'
+    },
     border: {
         main: '#FFFFFF80',
         secondary: '#DBBBA9',
