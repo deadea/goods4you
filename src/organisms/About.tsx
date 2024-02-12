@@ -6,7 +6,6 @@ import TextTypography from '../atoms/typography/TextTypography';
 
 const AboutSection = styled('section')`
     width: 100%;
-    background-position: right 130px bottom 0;
 `
 
 const AboutContainer = styled('div')`
