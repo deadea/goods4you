@@ -3,6 +3,7 @@ import About from "../organisms/About";
 import Catalog from "../organisms/Catalog";
 import Hero from "../organisms/Hero";
 import Quiz from "../organisms/Quiz";
+import Team from "../organisms/Team";
 
 const Main = () => {
     return (
@@ -11,6 +12,7 @@ const Main = () => {
         <Catalog />
         <About />
         <Quiz />
+        <Team />
       </MainWrapper>
     );
   }
