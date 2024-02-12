@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FILTERITEMS } from '../../consts/consts';
 import FilterCheckbox from '../../atoms/checkbox/FilterCheckbox';
-import FilterTitleTypography from '../../atoms/typography/FilterTitleTypography';
+import SectionTitleTypography from '../../atoms/typography/SectionTitleTypography';
 import FilterSubtitleTypography from '../../atoms/typography/FilterSubtitleTypography';
 import Button from '../../atoms/buttons/Button';
 import ClearButton from '../../atoms/buttons/ClearButton';
@@ -15,7 +15,7 @@ const FilterContainer = styled('div')`
     border-radius: 4px;
 `
 
-const Title = styled(FilterTitleTypography)`
+const Title = styled(SectionTitleTypography)`
     white-space: pre;
 `
 

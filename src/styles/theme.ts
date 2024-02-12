@@ -11,10 +11,12 @@ export const theme = {
     },
     border: {
         main: '#FFFFFF80',
+        dark: '#808080',
         secondary: '#DBBBA9',
     },
     text: {
         dark: '#444B58',
         light: '#FFFFFF',
+        secondary: '#808080',
     },
   };
