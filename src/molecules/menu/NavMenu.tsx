@@ -24,8 +24,8 @@ const NavMenu = () => {
             <MenuItem><NavLink url='#about' name={'About us'}/></MenuItem>
             <MenuItem><NavLink url='#product-selection' name={'Product selection'}/></MenuItem>
             <MenuItem><NavLink url='#team' name={'Our team'}/></MenuItem>
-            <MenuItem><NavLink url='#' name={'Shipping and payment'}/></MenuItem>
-            <MenuItem><NavLink url='#' name={'Contacts'}/></MenuItem>
+            <MenuItem><NavLink name={'Shipping and payment'}/></MenuItem>
+            <MenuItem><NavLink name={'Contacts'}/></MenuItem>
         </MenuList>
     );
 };
