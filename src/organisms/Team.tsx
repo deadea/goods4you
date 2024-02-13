@@ -51,8 +51,8 @@ const Team = () => {
                         <img src={team2} alt='team member Alex portrait' />
                     </TeamCardsSubContainer>
                     <TeamCardsSubContainer style={{flexDirection: 'column-reverse'}}>
-                        <img src={team3} alt='team member Maxim portrait' />
-                        <img src={team4} alt='team member Alex portrait' />
+                        <img src={team4} alt='team member Maxim portrait' />
+                        <img src={team3} alt='team member Alex portrait' />
                     </TeamCardsSubContainer>
                     <TeamCardsSubContainer>
                         <img src={team5} alt='team member Maxim portrait' />

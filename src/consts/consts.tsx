@@ -95,3 +95,14 @@ export const QUIZITEMS = [
         img: quizpic,
     },
 ]
+
+export const ACCORDIONITEMS = [
+    {
+        title: 'Question 1',
+        content: `Long answer to the first question`
+    },
+    {
+        title: 'Question 2',
+        content: `Long answer to the second question`
+    },
+]

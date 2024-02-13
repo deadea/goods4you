@@ -13,10 +13,12 @@ export const theme = {
         main: '#FFFFFF80',
         dark: '#808080',
         secondary: '#DBBBA9',
+        secondaryDark: '#242424',
     },
     text: {
         dark: '#444B58',
         light: '#FFFFFF',
         secondary: '#808080',
+        secondaryLight: '#24242480',
     },
   };
