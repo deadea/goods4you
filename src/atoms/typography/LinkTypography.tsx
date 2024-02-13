@@ -9,5 +9,6 @@ const LinkTypography = styled('a')`
     text-align: left;
     color: ${props => props.theme.text.light};
     display: inline-block;
+    cursor: pointer;
 `
 export default LinkTypography;

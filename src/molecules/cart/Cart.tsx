@@ -17,7 +17,7 @@ const Cart = ({ num }: Props) => {
     return (
         <CartContainer>
             <LinkTypography>Cart</LinkTypography>
-            <div style={{position: 'relative'}}>
+            <div style={{position: 'relative', cursor: 'pointer'}}>
                 <img src={cart} alt='cart' width='20px' height='14px' />
                 <Badge>{num}</Badge>
             </div>

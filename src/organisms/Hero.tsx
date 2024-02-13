@@ -30,7 +30,7 @@ const Hero = () => {
                 <TitleTypography>Any products from famous brands with worldwide delivery</TitleTypography>
                 <TextTypography style={{width: '350px'}}>We sell smartphones, laptops, clothes, shoes and many other products at low prices</TextTypography>
             </HeroTextContainer>
-            <AccentButton style={{marginLeft: '15px'}}>Go to shopping</AccentButton>
+            <AccentButton style={{marginLeft: '15px'}}>Go to shopping</AccentButton>{/*поздно поняла, что скорее всего это должна быть ссылка :( */}
             <BgTypography>Goods4you</BgTypography>
             </HeroContainer>
         </HeroSection>
