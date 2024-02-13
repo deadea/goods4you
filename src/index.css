@@ -37,6 +37,7 @@ body {
   place-items: center;
   min-width: 320px;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 p, h1, h2, h3, h4 {

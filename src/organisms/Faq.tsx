@@ -5,19 +5,20 @@ import { ACCORDIONITEMS } from '../consts/consts';
 
 const FaqSection = styled('section')`
     width: 100%;
-    background: ${props => props.theme.background.light}
+    background: ${props => props.theme.background.light};
 `
 
 const FaqContainer = styled('div')`
-    width: 1180px;
     margin: 0 auto;
+    width: 100%;
+    max-width: 880px;
     padding: 60px 280px 92px 280px;
     display: flex;
     flex-direction: column;
     gap: 27px;
 `
 const AccordionList = styled('ul')`
-    max-width: 880px;
+    width: 100%;
     overflow: hidden;
 `
 const AccordionListItem = styled('li')`

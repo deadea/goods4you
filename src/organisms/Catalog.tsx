@@ -42,7 +42,7 @@ const Catalog = () => {
         return <CatalogCard key={`${name}${Math.random()}`} name={name} price={price} img={img}/> 
     })
     return (
-        <CatalogSection>
+        <CatalogSection id='catalog'>
             <CatalogContainer>
                 <SubTitleTypography>Catalog</SubTitleTypography>
                 <CatalogContent>

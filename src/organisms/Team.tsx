@@ -42,7 +42,7 @@ const TeamSubTitleTypography = styled(SubTitleTypography)`
 
 const Team = () => {
     return (
-        <TeamSection>
+        <TeamSection id='team'>
             <TeamContainer>
                 <TeamSubTitleTypography>Our team</TeamSubTitleTypography>
                 <TeamCardsContainer>

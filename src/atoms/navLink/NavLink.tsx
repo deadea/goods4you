@@ -2,11 +2,12 @@ import LinkTypography from "../typography/LinkTypography";
 
 interface Props {
     name: string;
+    url?: string;
 }
 
-const NavLink = ({ name }: Props) => {
+const NavLink = ({ name, url }: Props) => {
     return (
-        <LinkTypography href="#">{name}</LinkTypography>
+        <LinkTypography href={url}>{name}</LinkTypography>
     );
 };
   

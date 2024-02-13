@@ -50,21 +50,19 @@ const Quiz = () => {
         return <QuizCard key={`${name}${Math.random()}`} name={name} img={img}/>
     })
     return (
-        <QuizSection>
+        <QuizSection id='product-selection'>
             <QuizContainer>
                 <QuizContentContainer>
                     <TextContainer>
                         <SubTitleTypography>We will select the perfect product for you</SubTitleTypography>
                         <QuizTextTypography>Answer three questions and we will send you a catalog with the most suitable products for you.</QuizTextTypography>
                     </TextContainer>
-                    {/* gap 20*/}
                     <div>
                         <SectionTitleTypography>What type of product are you considering?</SectionTitleTypography>
                         <QuizItemsList>
                             {quizItems}
                         </QuizItemsList>
                     </div>
-                    {/* gap 20*/}
                     <Stepper />
                 </QuizContentContainer>
             </QuizContainer>

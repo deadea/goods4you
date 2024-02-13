@@ -56,7 +56,7 @@ const LogoTypography = styled(TextTypography)`
 
 const About = () => {
     return (
-        <AboutSection>
+        <AboutSection id='about'>
             <AboutContainer>
                 <TextContainer>
                     <AboutSubTitleTypography>About us</AboutSubTitleTypography>

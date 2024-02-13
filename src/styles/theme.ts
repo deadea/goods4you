@@ -4,6 +4,7 @@ export const theme = {
         light: '#FFFFFF',
         secondary: '#FFF4EE',
         accent: '#F14F4F',
+        secondaryDark: '#444B58',
     },
     button: {
         dark: '#444B58',
