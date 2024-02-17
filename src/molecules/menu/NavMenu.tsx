@@ -15,9 +15,6 @@ const MenuItem = styled('li')`
 `
 
 const NavMenu = () => {
-    const links = MENUITEMS.map((item) => (
-        <MenuItem key={item}><NavLink name={item}/></MenuItem>
-    ))
     return (
         <MenuList>
             <MenuItem><NavLink url='#catalog' name={'Catalog'}/></MenuItem>
