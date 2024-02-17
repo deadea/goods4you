@@ -1,13 +1,13 @@
 import styled from 'styled-components';
+import { Link, useLocation } from 'react-router-dom';
 
 import { MENUITEMS } from "../../consts/consts";
 import NavLink from "../../atoms/navLink/NavLink";
 
 const MenuList = styled('ul')`
     display: flex;
-    gap: 36px;
     justify-content: space-between;
-    width: 653px;
+    width: 100%;
 `
 
 const MenuItem = styled('li')`
@@ -21,8 +21,8 @@ const NavMenu = () => {
             <MenuItem><NavLink url='#about' name={'About us'}/></MenuItem>
             <MenuItem><NavLink url='#product-selection' name={'Product selection'}/></MenuItem>
             <MenuItem><NavLink url='#team' name={'Our team'}/></MenuItem>
-            <MenuItem><NavLink name={'Shipping and payment'}/></MenuItem>
-            <MenuItem><NavLink name={'Contacts'}/></MenuItem>
+            <MenuItem><NavLink url='#faq' name={'FAQ'}/></MenuItem>
+            <Link to={'/admin'}><MenuItem><NavLink name={'For staff'}/></MenuItem></Link>
         </MenuList>
     );
 };

@@ -12,7 +12,8 @@ const QuizSection = styled('section')`
 `
 
 const QuizContainer = styled('div')`
-    width: 1180px;
+    width: 100%;
+    max-width: 1180px;
     margin: 0 auto;
     padding: 60px 130px;
 `

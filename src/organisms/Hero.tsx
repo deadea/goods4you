@@ -5,7 +5,8 @@ import BgTypography from '../atoms/typography/BgTypography';
 import AccentButton from '../atoms/buttons/AccentButton';
 
 const HeroSection = styled('section')`
-    width: 1180px;
+    width: 100%;
+    max-width: 1180px;
     margin: 0 auto;
     padding: 100px 130px 93px 130px;
 `

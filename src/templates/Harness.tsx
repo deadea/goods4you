@@ -10,7 +10,7 @@ interface Props {
 
 const Harness = ({ children }: Props) => {
     const location = useLocation(); 
-    console.log(location)
+
     return (
         <HarnessWrapper>
             <Header/>

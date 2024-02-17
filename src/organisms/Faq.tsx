@@ -30,7 +30,7 @@ const AccordionListItem = styled('li')`
 
 const Faq = () => {
     return (
-        <FaqSection>
+        <FaqSection id="faq">
             <FaqContainer>
                 <SubTitleTypography>FAQ</SubTitleTypography>
                 <AccordionList>

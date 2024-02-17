@@ -1,40 +1,39 @@
 import styled from 'styled-components';
+import { Link, useLocation } from 'react-router-dom';
 import HeaderWrapper from '../atoms/wrappers/HeaderWrapper';
 import LogoTypography from '../atoms/typography/LogoTypography';
 import NavMenu from '../molecules/menu/NavMenu';
-import Cart from '../molecules/cart/Cart';
+import NavLink from '../atoms/navLink/NavLink';
 
-const HeaderContainer = styled('header')`
+const HeaderContainer = styled('div')`
     border-bottom: 1px solid ${props => props.theme.border.main};
-    width: 1201.8px;
+    width: 100%;
     display: flex;
-    
+    justify-content: space-between;
     align-items: center;
-    gap: 233px;
     padding-bottom: 8px;
 `;
 
 const Menu = styled('nav')`
     height: 20px;
-`
-
-const MenuContainer = styled('div')`
-    display: flex;
-    gap: 56px;
+    width: 100%;
+    max-width: 653px;
 `
 
 const Header = () => {
-    const badgeCount = 1;
+    const location = useLocation();
     return (
       <HeaderWrapper>
         <HeaderContainer>
-            <LogoTypography>Goods4you</LogoTypography>
-            <MenuContainer>
+            <Link to={'/'}>
+                <LogoTypography>Goods4you</LogoTypography>
+            </Link>
+            {location.pathname !== '/' ? 
+                <Link to={'/'}><NavLink name={'Back to site'}/></Link>
+                :
                 <Menu>
                     <NavMenu />
-                </Menu>
-                <Cart num={badgeCount}/>
-            </MenuContainer>
+                </Menu>}
         </HeaderContainer>
       </HeaderWrapper>
     );

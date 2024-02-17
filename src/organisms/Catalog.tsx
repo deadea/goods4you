@@ -11,7 +11,8 @@ const CatalogSection = styled('section')`
     background: ${props => props.theme.background.light}
 `
 const CatalogContainer = styled('div')`
-    width: 1180px;
+    width: 100%;
+    max-width: 1180px;
     margin: 0 auto;
     padding: 54px 130px 53px 130px;
     background: ${props => props.theme.background.light}

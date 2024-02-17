@@ -11,13 +11,14 @@ import team6 from '../assets/png/team6.png'
 
 const TeamSection = styled('section')`
     width: 100%;
+    background: no-repeat right top url(${accentEllipse});
 `
 
 const TeamContainer = styled('div')`
-    width: 1180px;
+    width: 100%;
+    max-width: 1180px;
     margin: 0 auto;
     padding: 60px 130px 140px 130px;
-    background: no-repeat right top url(${accentEllipse});
     display: flex;
     flex-direction: column;
     gap: 27px;
