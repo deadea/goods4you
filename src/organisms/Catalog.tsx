@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux'
+
 import SubTitleTypography from '../atoms/typography/SubTitleTypography';
 import Filter from '../molecules/filter/Filter';
 import CatalogCard from '../molecules/catalogCard/CatalogCard';
 import AccentButton from '../atoms/buttons/AccentButton';
 import { CATALOGITEMS } from '../consts/consts';
+import { RootState } from '../store/store';
 
 
 const CatalogSection = styled('section')`
@@ -39,15 +42,19 @@ const MoreButton = styled(AccentButton)`
 `
 
 const Catalog = () => {
+    const categories = useSelector((state: RootState) => state.categories.categories)
+    const active = useSelector((state: RootState) => state.categories.activeCategory)
+    
     const cards = CATALOGITEMS.map(({name, price, img}) => {
         return <CatalogCard key={`${name}${Math.random()}`} name={name} price={price} img={img}/> 
     })
+
     return (
         <CatalogSection id='catalog'>
             <CatalogContainer>
                 <SubTitleTypography>Catalog</SubTitleTypography>
                 <CatalogContent>
-                    <Filter />
+                    <Filter categories={categories} active={active} />
                     <CardsContainer>
                         {cards}
                         <ButtonContainer>

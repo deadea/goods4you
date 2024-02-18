@@ -10,17 +10,6 @@ export const MENUITEMS = [
     'Contacts',
 ]
 
-export const FILTERITEMS = [
-    'smartphones',
-    'laptops',
-    'sneakers',
-    'sneakers',
-    'sneakers',
-    'sneakers',
-    'sneakers',
-    'sneakers',
-]
-
 export const CATALOGITEMS = [
     {
         name: "Nike Air Force 1 '07 QS",
