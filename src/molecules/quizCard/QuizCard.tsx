@@ -5,22 +5,23 @@ const ListItem = styled('li')`
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: fit-content;
+    flex-basis: 25%;
 `
 const LabelContainer = styled('div')`
     display: flex;
     gap: 10px;
     height: 24px;
+    width: fit-content;
 `
 
 interface Props {
     name: string;
-    img: string;
 }
 
-const QuizCard = ( { name, img}: Props ) => {
+const QuizCard = ( { name}: Props ) => {
     return (
         <ListItem>
-            <img src={img} alt={`quiz option ${name}`} width='280px' height='120px'/>
             <LabelContainer>            
                 <input type="checkbox" id={name} name={name} />
                 <LabelTypography htmlFor={name}>{name}</LabelTypography>

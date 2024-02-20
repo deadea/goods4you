@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
-const HeaderWrapper = styled('div')`
+const HeaderWrapper = styled('header')`
     margin: 0 auto;
-    width: calc(100% - 130px);
-    padding-left: 130px;
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
 `;
 export default HeaderWrapper;

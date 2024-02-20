@@ -6,14 +6,15 @@ import TextTypography from '../atoms/typography/TextTypography';
 
 const AboutSection = styled('section')`
     width: 100%;
+    background: no-repeat url(${ellipses});
 `
 
 const AboutContainer = styled('div')`
-    width: 1180px;
+    width: 100%;
+    max-width: 1180px;
     margin: 0 auto;
     padding: 0 130px;
     padding-left: 134px;
-    background: no-repeat url(${ellipses});
     display: flex;
     gap: 40px;
 `

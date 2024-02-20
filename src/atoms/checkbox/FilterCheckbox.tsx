@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import LabelTypography from '../typography/LabelTypography';
 
 interface Props {

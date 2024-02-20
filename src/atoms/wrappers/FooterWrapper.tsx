@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
-const FooterWrapper = styled('div')`
+const FooterWrapper = styled('footer')`
     margin: 0 auto;
-    width: calc(100% - 130px);
-    padding-left: 130px;
+    width: 100%;
+    padding: 0 130px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
     background: ${props => props.theme.background.secondaryDark};
 `;
 export default FooterWrapper;

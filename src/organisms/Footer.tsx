@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import HeaderWrapper from '../atoms/wrappers/HeaderWrapper';
 import LogoTypography from '../atoms/typography/LogoTypography';
 import NavMenu from '../molecules/menu/NavMenu';
 import FooterWrapper from '../atoms/wrappers/FooterWrapper';
 
-const FooterContainer = styled('footer')`
-    width: 1201.8px;
+const FooterContainer = styled('div')`
+    width: 100%;
+    max-width: 1180px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,11 +15,8 @@ const FooterContainer = styled('footer')`
 
 const Menu = styled('nav')`
     height: 20px;
-`
-
-const MenuContainer = styled('div')`
-    display: flex;
-    gap: 56px;
+    width: 100%;
+    max-width: 653px;
 `
 
 const Footer = () => {
@@ -27,11 +24,9 @@ const Footer = () => {
     <FooterWrapper>
       <FooterContainer>
           <LogoTypography>Goods4you</LogoTypography>
-          <MenuContainer>
               <Menu>
                   <NavMenu />
               </Menu>
-          </MenuContainer>
       </FooterContainer>
     </FooterWrapper>
   );

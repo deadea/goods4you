@@ -29,6 +29,12 @@ const TextContainer = styled('div')`
     gap: 3px;
 `
 
+const Image = styled('img')`
+    width: auto;
+    height: auto;
+    max-width: 280px;
+    max-height: 293px;
+`
 interface Props {
     name: string;
     price: string;
@@ -39,11 +45,11 @@ const CatalogCard = ({ name, price, img }: Props) => {
     return (
         <CatalogCardContainer>
             <ImageContainer>
-                <img src={img} alt='product picture'  />
+                <Image src={img} alt={`picture of ${name}`}  />
             </ImageContainer>
             <TextContainer>
                 <ItemNameTypography>{name}</ItemNameTypography>
-                <ItemPriceTypography>{price}</ItemPriceTypography>
+                <ItemPriceTypography>{`${price} $`}</ItemPriceTypography>
             </TextContainer>
         </CatalogCardContainer>
     )

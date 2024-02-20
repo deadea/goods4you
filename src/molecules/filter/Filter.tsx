@@ -1,14 +1,19 @@
 import styled from 'styled-components';
-import { FILTERITEMS } from '../../consts/consts';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { chooseCategory, resetCategory } from '../../store/slices/categoriesSlice';
+import { resetProductsLimit } from '../../store/slices/productsSlice';
+
 import FilterCheckbox from '../../atoms/checkbox/FilterCheckbox';
 import SectionTitleTypography from '../../atoms/typography/SectionTitleTypography';
 import FilterSubtitleTypography from '../../atoms/typography/FilterSubtitleTypography';
 import Button from '../../atoms/buttons/Button';
 import ClearButton from '../../atoms/buttons/ClearButton';
+import Spinner from '../../atoms/spinner/Spinner';
 
 const FilterContainer = styled('div')`
     width: 280px;
-    height: 535px;
+    height: max-content;
     padding: 9px 20px 0px 20px;
     box-sizing: border-box;
     background: ${props => props.theme.background.secondary};
@@ -22,17 +27,21 @@ const Title = styled(SectionTitleTypography)`
 const CheckboxContainer = styled('div')`
     padding-top: 25px;
     padding-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 const CheckboxList = styled('ul')`
     display: flex;
+    min-height: 570px;
     justify-content: space-between;
     flex-wrap: wrap;
     width: 240px;
-    height: 228px;
     margin-top: 3px;
 `
-const CheckboxItem = styled('li')`
+
+const CheckboxItem = styled('li')<{ $isActive?: boolean; }>`
     cursor: pointer;
     box-sizing: border-box;
     border: 1px solid ${props => props.theme.border.secondary};
@@ -41,6 +50,8 @@ const CheckboxItem = styled('li')`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 5px;
+    background-color: ${props => props.$isActive ? "white" : "transparent"};
 `
 
 const ButtonContainer = styled('div')`
@@ -49,22 +60,38 @@ const ButtonContainer = styled('div')`
     gap: 10px;
 `
 
-const Filter = () => {
-    const filterItems = FILTERITEMS.map((item) => (
-        <CheckboxItem key={`${item}${Math.random()}`}><FilterCheckbox label={item}/></CheckboxItem>
-    ))
+interface Props {
+    categories: string[];
+    active: string;
+}
+
+const Filter = ({ categories, active }: Props) => {
+    const [isLoading, setIsLoading] = useState(true)
+    const [category, setCategory] = useState('none')
+    const dispatch = useDispatch()
+
+    const items = categories.map((item) => <CheckboxItem $isActive={item === category} onClick={() => {setCategory(item)}} key={`${item}${Math.random()}`}><FilterCheckbox label={item}/></CheckboxItem>)
+
+    useEffect(() => {
+        if (categories[0] !== '') setIsLoading(false)
+    }, [categories])
+
+    const handleReset = () => {
+        setCategory('none')
+        dispatch(resetCategory())
+        dispatch(resetProductsLimit())
+    }
+
     return (
         <FilterContainer>
             <Title>Selection <br/>by parameters</Title>
             <CheckboxContainer>
-                <FilterSubtitleTypography>Category</FilterSubtitleTypography>
-                <CheckboxList>
-                    {filterItems}
-                </CheckboxList>
+                <FilterSubtitleTypography style={{alignSelf: 'start'}}>Category</FilterSubtitleTypography>
+                {isLoading ? <Spinner /> : <CheckboxList>{items}</CheckboxList>}
             </CheckboxContainer>
             <ButtonContainer>
-                <Button>Apply</Button>
-                <ClearButton>Reset</ClearButton>
+                <Button onClick={() => {dispatch(chooseCategory(category))}}>Apply</Button>
+                <ClearButton onClick={handleReset}>Reset</ClearButton>
             </ButtonContainer>
         </FilterContainer>
     );
