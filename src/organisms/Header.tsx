@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import HeaderWrapper from '../atoms/wrappers/HeaderWrapper';
 import LogoTypography from '../atoms/typography/LogoTypography';
 import NavMenu from '../molecules/menu/NavMenu';
-import NavLink from '../atoms/navLink/NavLink';
+import { RouterLinkTypography } from '../atoms/typography/LinkTypography';
 
 const HeaderContainer = styled('div')`
     border-bottom: 1px solid ${props => props.theme.border.main};
@@ -29,7 +29,7 @@ const Header = () => {
                 <LogoTypography>Goods4you</LogoTypography>
             </Link>
             {location.pathname !== '/' ? 
-                <Link to={'/'}><NavLink name={'Back to site'}/></Link>
+                <RouterLinkTypography to={'/'}>Back to site</RouterLinkTypography>
                 :
                 <Menu>
                     <NavMenu />

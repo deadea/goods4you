@@ -1,4 +1,4 @@
-import LinkTypography from "../typography/LinkTypography";
+import { LinkTypography } from "../typography/LinkTypography";
 
 interface Props {
     name: string;
@@ -12,7 +12,6 @@ const NavLink = ({ name, url }: Props) => {
             let element = document.getElementById(id.slice(1));
             e.preventDefault();
             element && element.scrollIntoView({ behavior: "smooth", block: "start"});
-            console.log(id.slice(1))
         }
     }
     return (

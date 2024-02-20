@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { chooseCategory, resetCategory } from '../../store/slices/categoriesSlice';
+import { resetProductsLimit } from '../../store/slices/productsSlice';
 
 import FilterCheckbox from '../../atoms/checkbox/FilterCheckbox';
 import SectionTitleTypography from '../../atoms/typography/SectionTitleTypography';
@@ -66,13 +67,20 @@ interface Props {
 
 const Filter = ({ categories, active }: Props) => {
     const [isLoading, setIsLoading] = useState(true)
+    const [category, setCategory] = useState('none')
     const dispatch = useDispatch()
 
-    const items = categories.map((item) => <CheckboxItem $isActive={item === active} onClick={() => {dispatch(chooseCategory(item))}} key={`${item}${Math.random()}`}><FilterCheckbox label={item}/></CheckboxItem>)
-    
+    const items = categories.map((item) => <CheckboxItem $isActive={item === category} onClick={() => {setCategory(item)}} key={`${item}${Math.random()}`}><FilterCheckbox label={item}/></CheckboxItem>)
+
     useEffect(() => {
         if (categories[0] !== '') setIsLoading(false)
     }, [categories])
+
+    const handleReset = () => {
+        setCategory('none')
+        dispatch(resetCategory())
+        dispatch(resetProductsLimit())
+    }
 
     return (
         <FilterContainer>
@@ -82,8 +90,8 @@ const Filter = ({ categories, active }: Props) => {
                 {isLoading ? <Spinner /> : <CheckboxList>{items}</CheckboxList>}
             </CheckboxContainer>
             <ButtonContainer>
-                <Button>Apply</Button>
-                <ClearButton onClick={() => dispatch(resetCategory())}>Reset</ClearButton>
+                <Button onClick={() => {dispatch(chooseCategory(category))}}>Apply</Button>
+                <ClearButton onClick={handleReset}>Reset</ClearButton>
             </ButtonContainer>
         </FilterContainer>
     );

@@ -1,10 +1,14 @@
 import styled from 'styled-components';
+import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react';
+
 import SubTitleTypography from '../atoms/typography/SubTitleTypography';
 import TextTypography from '../atoms/typography/TextTypography';
 import SectionTitleTypography from '../atoms/typography/SectionTitleTypography';
-import { QUIZITEMS } from '../consts/consts';
 import QuizCard from '../molecules/quizCard/QuizCard';
 import Stepper from '../molecules/stepper/Stepper';
+import { RootState } from '../store/store';
+import Spinner from '../atoms/spinner/Spinner';
 
 const QuizSection = styled('section')`
     width: 100%;
@@ -37,19 +41,27 @@ const QuizTextTypography = styled(TextTypography)`
 `
 
 const QuizItemsList = styled('ul')`
-    padding-top: 9px;
+    padding-top: 33px;
     padding-bottom: 40px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     row-gap: 20px;
     column-gap: 70px;
     border-bottom: 1px solid ${props => props.theme.border.dark};
+    height: 100%;
+    max-height: 300px;
 ` 
 
 const Quiz = () => {
-    const quizItems = QUIZITEMS.map(({name, img}) => {
-        return <QuizCard key={`${name}${Math.random()}`} name={name} img={img}/>
+    const [isLoading, setIsLoading] = useState(true)
+    const categories = useSelector((state: RootState) => state.categories.categories)
+    const quizItems = categories.map((item) => {
+        return <QuizCard key={`${item}${Math.random()}`} name={item}/>
     })
+    useEffect(() => {
+        if (categories[0] !== '') setIsLoading(false)
+    }, [categories])
     return (
         <QuizSection id='product-selection'>
             <QuizContainer>
@@ -60,9 +72,7 @@ const Quiz = () => {
                     </TextContainer>
                     <div>
                         <SectionTitleTypography>What type of product are you considering?</SectionTitleTypography>
-                        <QuizItemsList>
-                            {quizItems}
-                        </QuizItemsList>
+                        {isLoading ? <Spinner /> : <QuizItemsList>{quizItems}</QuizItemsList>}
                     </div>
                     <Stepper />
                 </QuizContentContainer>
