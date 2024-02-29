@@ -1,10 +1,11 @@
 import MainWrapper from "../atoms/wrappers/MainWrapper";
+import AdminCatalog from "../organisms/AdminCatalog";
 
 
 const Admin = () => {
     return (
       <MainWrapper>
-        <>Admin page</>
+        <AdminCatalog />
       </MainWrapper>
     );
   }

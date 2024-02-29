@@ -22,6 +22,10 @@ const ImageContainer = styled('div')`
     border-radius: 4px;
     width: 280px;
     height: 293px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `
 const TextContainer = styled('div')`
     display: flex;
@@ -39,11 +43,12 @@ interface Props {
     name: string;
     price: string;
     img: string;
+    width?: string;
 }
 
-const CatalogCard = ({ name, price, img }: Props) => {
+const CatalogCard = ({ name, price, img, width = '280px' }: Props) => {
     return (
-        <CatalogCardContainer>
+        <CatalogCardContainer style={{width: width}}>
             <ImageContainer>
                 <Image src={img} alt={`picture of ${name}`}  />
             </ImageContainer>

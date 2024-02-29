@@ -28,6 +28,15 @@ class ApiService {
             throw e
         }
     }
+    async searchProducts(name: string){
+        try {            
+            const res = await fetch(`${this._apiBase}products/search?q=${name}`);
+              const result = await res.json();
+              return result;
+        } catch (e) {
+            throw e
+        }
+    }
 }
 
 const Service = new ApiService();
