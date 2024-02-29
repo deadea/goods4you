@@ -98,8 +98,12 @@ const AdminCatalog = () => {
         })
     }, [searchTerm, searchTermBtn])
 
-    const handleClick = () => {
-        navigate('/product')
+    const handleClick = (id: string | undefined) => {
+        navigate('/product', {
+            state: {
+              id: id,
+            }
+        })
     }
 
     const cards = products.products.map(({id, title, price, images}) => {

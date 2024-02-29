@@ -37,6 +37,15 @@ class ApiService {
             throw e
         }
     }
+    async getOneProduct(id: string){
+        try {            
+            const res = await fetch(`${this._apiBase}products/${id}`);
+              const result = await res.json();
+              return result;
+        } catch (e) {
+            throw e
+        }
+    }
 }
 
 const Service = new ApiService();

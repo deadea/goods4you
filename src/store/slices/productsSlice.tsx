@@ -15,6 +15,19 @@ export const productsSlice = createSlice({
         total: 0,
         skip: 0,
         limit: 0,
+      },
+      oneProduct: {
+        id: 0,
+        title: "",
+        description: "",
+        price: 0,
+        discountPercentage: 0,
+        rating: 0,
+        stock: 0,
+        brand: "",
+        category: "",
+        thumbnail: "",
+        images: []
       }
     },
     reducers: {
@@ -30,9 +43,12 @@ export const productsSlice = createSlice({
         getFilteredProducts: (state, action) => {
         state.filteredProducts = action.payload
       },
+        getOneProduct: (state, action) => {
+        state.oneProduct = action.payload
+      },
     },
   })
   
-  export const { getProducts, getNextProducts, getFilteredProducts, resetProductsLimit } = productsSlice.actions
+  export const { getProducts, getNextProducts, getFilteredProducts, resetProductsLimit, getOneProduct } = productsSlice.actions
   
   export default productsSlice.reducer

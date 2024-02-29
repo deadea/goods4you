@@ -1,4 +1,11 @@
+import { useEffect } from 'react';
+import { useLocation } from "react-router-dom";
 import styled from 'styled-components';
+import SubTitleTypography from '../atoms/typography/SubTitleTypography';
+import Service from '../service/Service';
+import { getOneProduct } from '../store/slices/productsSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../store/store';
 
 const OneProductSection = styled('section')`
     width: 100%;
@@ -16,10 +23,29 @@ const OneProductContainer = styled('div')`
 `
 
 const OneProduct = () => {
+    const location = useLocation();
+    let id = location.state.id;
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        Service.getOneProduct(id)
+        .then((result) => {
+          if (result.error) {
+            console.log('error')
+          } else {
+            dispatch(getOneProduct(result))
+          }
+        })
+        .catch(() => {
+          console.log('error2')
+        })
+    }, [])
+    const product = useSelector((state: RootState) => state.products.oneProduct)
+
     return (
         <OneProductSection>
             <OneProductContainer>
-            <>sdf</>
+            <SubTitleTypography>Product {id}</SubTitleTypography>
             </OneProductContainer>
         </OneProductSection>
 
