@@ -40,6 +40,53 @@ const TeamCardsSubContainer = styled('div')`
 const TeamSubTitleTypography = styled(SubTitleTypography)`
     color: ${props => props.theme.text.light};
 `
+const Img = styled('img')`
+    filter: brightness(100%);
+    transition: filter 1s ease;
+    &:hover {
+        filter: brightness(50%);
+    }
+`
+const BlackoutContainer = styled('div')`
+    position: relative;
+    overflow: hidden;
+    &:hover p {
+        opacity: 1; 
+    }
+`
+const BlackoutTextContainer = styled('div')`
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 380px;
+    max-height: 400px;
+`
+
+const BlackoutText = styled('p')`
+    opacity: 0;
+    transition: opacity 1s ease;
+    font-family: Jost;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 0em;
+    color: rgba(255, 255, 255, 1);
+`
+const BlackoutSubText = styled('p')`
+    opacity: 0;
+    transition: opacity 1s ease;
+    font-family: Jost;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 23px;
+    letter-spacing: 0em; 
+    color: rgba(255, 255, 255, 1);   
+`
+
 
 const Team = () => {
     return (
@@ -48,16 +95,52 @@ const Team = () => {
                 <TeamSubTitleTypography>Our team</TeamSubTitleTypography>
                 <TeamCardsContainer>
                     <TeamCardsSubContainer>
-                        <img src={team1} alt='team member Maxim portrait' />
-                        <img src={team2} alt='team member Alex portrait' />
+                        <BlackoutContainer>
+                            <Img src={team1} alt='team member Maxim portrait' />
+                            <BlackoutTextContainer>
+                                <BlackoutText>Maxim</BlackoutText>
+                                <BlackoutSubText>Administrator</BlackoutSubText>
+                            </BlackoutTextContainer>
+                        </BlackoutContainer>
+                        <BlackoutContainer>
+                            <Img src={team2} alt='team member Alex portrait' />
+                            <BlackoutTextContainer>
+                                <BlackoutText>Alex</BlackoutText>
+                                <BlackoutSubText>Administrator</BlackoutSubText>
+                            </BlackoutTextContainer>
+                        </BlackoutContainer>
                     </TeamCardsSubContainer>
                     <TeamCardsSubContainer style={{flexDirection: 'column-reverse'}}>
-                        <img src={team4} alt='team member Maxim portrait' />
-                        <img src={team3} alt='team member Alex portrait' />
+                        <BlackoutContainer>
+                            <Img src={team4} alt='team member Maxim portrait' />
+                            <BlackoutTextContainer>
+                                <BlackoutText>Alex</BlackoutText>
+                                <BlackoutSubText>Administrator</BlackoutSubText>
+                            </BlackoutTextContainer>
+                        </BlackoutContainer>
+                        <BlackoutContainer>
+                            <Img src={team3} alt='team member Alex portrait' />
+                            <BlackoutTextContainer>
+                                <BlackoutText>Maria</BlackoutText>
+                                <BlackoutSubText>Administrator</BlackoutSubText>
+                            </BlackoutTextContainer>
+                        </BlackoutContainer>
                     </TeamCardsSubContainer>
                     <TeamCardsSubContainer>
-                        <img src={team5} alt='team member Maxim portrait' />
-                        <img src={team6} alt='team member Alex portrait' />
+                        <BlackoutContainer>
+                            <Img src={team5} alt='team member Maxim portrait' />
+                            <BlackoutTextContainer>
+                                <BlackoutText>Maria</BlackoutText>
+                                <BlackoutSubText>Administrator</BlackoutSubText>
+                            </BlackoutTextContainer>
+                        </BlackoutContainer>
+                        <BlackoutContainer>
+                            <Img src={team6} alt='team member Alex portrait' />
+                            <BlackoutTextContainer>
+                                <BlackoutText>Maria</BlackoutText>
+                                <BlackoutSubText>Administrator</BlackoutSubText>
+                            </BlackoutTextContainer>
+                        </BlackoutContainer>
                     </TeamCardsSubContainer>
                 </TeamCardsContainer>
             </TeamContainer>
