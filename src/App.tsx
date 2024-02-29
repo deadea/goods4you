@@ -12,6 +12,7 @@ import Harness from './templates/Harness';
 import Main from './pages/Main';
 import Admin from './pages/Admin';
 import NoExist from './pages/NoExist';
+import Product from './pages/Product';
 
 const App = () => {
   const limit = useSelector((state: RootState) => state.products.limit)
@@ -66,6 +67,7 @@ const App = () => {
           <Routes>
               <Route path="/" element={<Main />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/product" element={<Product />} />
               <Route path="*" element={<NoExist />} />
           </Routes>
         </Harness>

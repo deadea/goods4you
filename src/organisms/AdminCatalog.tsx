@@ -8,6 +8,7 @@ import { RootState } from '../store/store';
 import SubTitleTypography from '../atoms/typography/SubTitleTypography';
 import { useDebounce } from '../utils/useDebounce';
 import Service from '../service/Service';
+import { useNavigate } from "react-router-dom";
 
 const CatalogSection = styled('section')`
     width: 100%;
@@ -62,17 +63,16 @@ const StyledInput = styled('input')`
 `
 
 const AdminCatalog = () => {
-    const dispatch = useDispatch()
-
     const [searchTerm, setSearchTerm] = useState('')
     const [searchTermBtn, setSearchTermBtn] = useState('')
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
 
     const products = useSelector((state: RootState) => state.products.products)
     const total = useSelector((state: RootState) => state.products.products.total)
     const limit = useSelector((state: RootState) => state.products.limit)
-    const cards = products.products.map(({id, title, price, images}) => {
-        return <CatalogCard width='375px' key={id} name={title} price={price} img={images[0]}/> 
-    })
+
     const isButtonVisible = limit >= total ? false : true
 
     const handleChange = useDebounce((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -97,6 +97,14 @@ const AdminCatalog = () => {
           console.log('error2')
         })
     }, [searchTerm, searchTermBtn])
+
+    const handleClick = () => {
+        navigate('/product')
+    }
+
+    const cards = products.products.map(({id, title, price, images}) => {
+        return <CatalogCard onClick={handleClick} width='375px' key={id} id={id} name={title} price={price} img={images[0]}/> 
+    })
 
     return (
         <CatalogSection>

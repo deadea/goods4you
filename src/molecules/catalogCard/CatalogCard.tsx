@@ -44,11 +44,16 @@ interface Props {
     price: string;
     img: string;
     width?: string;
+    id?: string;
+    onClick?: (id:string | undefined) => void;
 }
 
-const CatalogCard = ({ name, price, img, width = '280px' }: Props) => {
+const CatalogCard = ({ name, price, img, width = '280px', onClick, id }: Props) => {
+    const handleClick = (id: string | undefined) => {
+       if (onClick) onClick(id)
+    }
     return (
-        <CatalogCardContainer style={{width: width}}>
+        <CatalogCardContainer style={{width: width}} onClick={() => handleClick(id)}>
             <ImageContainer>
                 <Image src={img} alt={`picture of ${name}`}  />
             </ImageContainer>
