@@ -6,6 +6,8 @@ import Service from '../service/Service';
 import { getOneProduct } from '../store/slices/productsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store/store';
+import '../../node_modules/react-image-gallery/styles/css/image-gallery.css'
+import ImageGallery, { ReactImageGalleryItem, ReactImageGalleryProps } from "react-image-gallery";
 
 const OneProductSection = styled('section')`
     width: 100%;
@@ -39,13 +41,20 @@ const OneProduct = () => {
         .catch(() => {
           console.log('error2')
         })
-    }, [])
+    }, [dispatch, id])
     const product = useSelector((state: RootState) => state.products.oneProduct)
+
+    const images = product.images.map((img: any) => {
+      return {original: img, thumbnail: img, originalHeight: 460, thumbnailHeight: 75}
+    })
 
     return (
         <OneProductSection>
             <OneProductContainer>
             <SubTitleTypography>Product {id}</SubTitleTypography>
+            <div style={{width: '520px', height: '560px'}}>
+            <ImageGallery items={images} showFullscreenButton={false} showPlayButton={false}/>
+            </div>
             </OneProductContainer>
         </OneProductSection>
 

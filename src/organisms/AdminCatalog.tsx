@@ -85,6 +85,7 @@ const AdminCatalog = () => {
             firstUpdate.current = false;
             return;
         }
+        if (!searchTerm) return
         Service.searchProducts(searchTerm)
         .then((result) => {
           if (result.error) {
